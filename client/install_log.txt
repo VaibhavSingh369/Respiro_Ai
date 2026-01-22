@@ -1,0 +1,120 @@
+node.exe : npm error 
+code ERESOLVE
+At line:1 char:1
++ & "C:\Program Files
+\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (npm err   
+ or code ERESOLVE    
+:String) [], Rem    
+oteException
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+npm error ERESOLVE 
+could not resolve
+npm error
+npm error While 
+resolving: respiro-ai
+-client@1.0.0
+npm error Found: 
+react@18.2.0
+npm error 
+node_modules/react
+npm error   
+react@"19.1.0" from 
+the root project
+npm error   
+peerOptional 
+react@"*" from 
+@expo/devtools@0.1.8
+npm error   node_modu
+les/@expo/devtools
+npm error     @expo/d
+evtools@"0.1.8" from 
+expo@54.0.31
+npm error     
+node_modules/expo
+npm error       
+expo@"^54.0.31" from 
+the root project
+npm error       14 
+more 
+(@expo/metro-config, 
+babel-preset-expo, 
+expo-asset, ...)
+npm error   20 more 
+(@expo/vector-icons, 
+@radix-ui/react-compo
+se-refs, ...)
+npm error
+npm error Could not 
+resolve dependency:
+npm error 
+expo-av@"~16.0.8" 
+from the root project
+npm error
+npm error 
+Conflicting peer 
+dependency: 
+react@19.1.0
+npm error 
+node_modules/react
+npm error   peer 
+react@"^19.1.0" from 
+react-native@0.81.5
+npm error   node_modu
+les/react-native
+npm error     react-n
+ative@"0.81.5" from 
+the root project
+npm error     peer 
+react-native@"*" 
+from expo-av@16.0.8
+npm error     
+node_modules/expo-av
+npm error       
+expo-av@"~16.0.8" 
+from the root project
+npm error     4 more 
+(expo, 
+@expo/dom-webview, 
+@expo/metro-runtime, 
+react-native-webview)
+npm error
+npm error Fix the 
+upstream dependency 
+conflict, or retry
+npm error this 
+command with --force 
+or --legacy-peer-deps
+npm error to accept 
+an incorrect (and 
+potentially broken) 
+dependency 
+resolution.
+npm error
+npm error
+npm error For a full 
+report see:
+npm error C:\Users\fa
+bvab\AppData\Local\np
+m-cache\_logs\2026-01
+-21T17_45_21_147Z-ere
+solve-report.txt
+npm error A complete 
+log of this run can 
+be found in: C:\Users
+\fabvab\AppData\Local
+\npm-cache\_logs\2026
+-01-21T17_45_21_147Z-
+debug-0.log
