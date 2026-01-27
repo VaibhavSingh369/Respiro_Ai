@@ -1,75 +1,86 @@
-# 🫁 Respiro_AI
+# 🫁 Respiro_Ai
 
-> ⚠️ **Project Status: Under Active Development**  
-> This project is currently in the development phase.  
-> **New changes, features, and improvements are being added regularly.**
+> 🚀 **Project Status: MVP / Demo Ready** > This project is a fully functional prototype demonstrating end-to-end integration of Mobile, Cloud, and AI technologies.
 
 ---
 
 ## 📌 Overview
 
-**Respiro_AI** is an AI-powered respiratory screening system that analyzes **cough audio** to identify **abnormal respiratory patterns**.  
-The system converts cough sounds into **mel-spectrogram images** and uses a **cloud-based machine learning model** to perform early-stage screening for respiratory abnormalities.
+**Respiro_AI** is an AI-powered telemedicine application designed to democratize early respiratory diagnosis. By leveraging **Audio Signal Processing** and **Computer Vision AI**, the app analyzes cough sounds to detect potential respiratory anomalies (e.g., Pneumonia, Bronchitis) instantly using a smartphone.
 
-The project is designed to support **low-resource and rural healthcare settings**, where access to diagnostic tools like X-rays and specialists may be limited.
+The system converts raw audio into **Mel-Spectrograms** (visual representations of sound) and uses a **Google Vertex AI** model to perform clinical-grade screening, providing results in seconds without expensive medical equipment.
 
-⚠️ **Important:**  
-Respiro_AI is a **screening and decision-support tool**, **not a diagnostic system**.
+⚠️ **Important:** Respiro_AI is a **screening and decision-support tool**, designed to assist—not replace—professional medical diagnosis.
 
 ---
 
 ## 🎯 Problem Statement
 
 Respiratory diseases are often diagnosed late in rural and underserved areas due to:
-- Lack of diagnostic infrastructure (X-ray, CT scans)
-- Shortage of trained medical professionals
-- Delayed referrals and subjective assessment
+- 🏥 **Lack of Infrastructure:** Limited access to X-ray machines and CT scanners.
+- 👨‍⚕️ **Shortage of Specialists:** Few pulmonologists in remote regions.
+- ⏳ **Time Delays:** Traditional referrals take days or weeks.
 
-Respiro_AI aims to provide an **accessible, non-invasive, and fast preliminary screening tool** using only a smartphone microphone.
+Respiro_AI provides an **accessible, non-invasive, and instant preliminary screening tool** using nothing but a phone microphone.
 
 ---
 
-## 💡 Solution Approach
+## 💡 Solution Approach: The "Sound-to-Vision" Pipeline
 
-The system follows a **sound-to-vision AI pipeline**:
+Our system treats audio classification as an image recognition problem:
 
-1. Capture cough audio via a mobile application  
-2. Preprocess and clean the audio signal  
-3. Convert audio into mel-spectrogram images  
-4. Classify spectrograms using a cloud-hosted AI model  
-5. Assess respiratory risk and provide recommendations  
-
-The model is trained using **publicly available respiratory datasets** and focuses on distinguishing:
-- **Healthy cough patterns**
-- **Symptomatic / abnormal cough patterns**
+1.  **Capture:** High-fidelity audio recording via the React Native mobile app.
+2.  **Transformation:** The Python backend uses **Librosa** to convert audio waves into **Mel-Spectrogram images**.
+3.  **Vision Analysis:** These spectrograms are sent to **Google Vertex AI**, which detects visual patterns associated with respiratory distress.
+4.  **Persistence:** Data is synced in real-time to **Firebase**, creating a permanent medical record for the patient.
 
 ---
 
 ## 🧠 Key Features
 
-- 🎤 Smartphone-based cough recording  
-- 🎵 Audio preprocessing and normalization  
-- 🖼️ Mel-spectrogram generation  
-- ☁️ Cloud-based AI inference (Vertex AI)  
-- 📊 Risk-based output with confidence scores  
-- 🩺 Ethical and explainable screening results  
+### 📱 **Patient-Centric Mobile App**
+- **One-Tap Analysis:** Simple "Record & Analyze" workflow.
+- **Visual Diagnostics:** Displays the actual **Spectrogram** fingerprint of the user's cough.
+- **Real-Time Feedback:** Instant "Healthy" vs "Anomaly" classification with confidence scores.
+- **Medical-Grade UI:** Clean, gradient-based aesthetics designed for accessibility.
+
+### ☁️ **Cloud & Data Management**
+- **Patient History:** A slide-out side menu lists all past patients.
+- **Interactive Dashboard:**
+    - **Tap** to reload full diagnostic reports.
+    - **Long-Press** to delete erroneous records.
+- **Cloud Sync:** All data (Audio, Images, Metadata) is stored in **Firebase**, ensuring records are never lost even if the app is uninstalled.
 
 ---
 
-## 🏗️ System Architecture
+## 🏗️ System Architecture & Tech Stack
 
-**Frontend**
-- Mobile application (React Native)
-- Audio recording and result display
+The project follows a modern **Client-Server-Cloud** architecture.
 
-**Backend**
-- Audio preprocessing
-- Spectrogram generation
-- API integration
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Mobile Frontend** | **React Native (Expo)** | Cross-platform UI (iOS/Android), Audio Recording, File Management. |
+| **Backend API** | **FastAPI (Python)** | High-performance server, API routing, Request handling. |
+| **DSP Engine** | **Librosa** | Digital Signal Processing (Converting `.wav` audio to `.png` spectrograms). |
+| **AI Model** | **Google Vertex AI** | AutoML Vision model hosted on a cloud endpoint for classification. |
+| **Database** | **Firebase Firestore** | Real-time NoSQL database for storing patient metadata and history. |
+| **File Storage** | **Firebase Storage** | Object storage for hosting raw audio files and spectrogram images. |
+| **Tunneling** | **Ngrok** | Secure tunneling to expose the local backend for global access/demos. |
 
-**AI / Cloud**
-- Image-based cough classification model
-- Deployed on Google Cloud Vertex AI
+
 
 ---
+
+## ⚙️ How It Works (Under the Hood)
+
+1.  **User** records a cough and enters Patient Details (Name/Age).
+2.  **App** sends the audio file to the **FastAPI Server**.
+3.  **Server** processes the audio:
+    * Generates a unique ID (UUID).
+    * Creates a strict 4x4 inch Mel-Spectrogram using **Librosa**.
+4.  **Server** sends the spectrogram image to **Google Cloud Vertex AI**.
+5.  **AI** returns a prediction (Label + Confidence Score).
+6.  **Server** uploads the original audio and spectrogram image to **Firebase Storage**.
+7.  **Server** saves the full report to **Firestore Database**.
+8.  **App** receives the result and updates the UI instantly.
 
