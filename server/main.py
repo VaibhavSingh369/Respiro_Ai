@@ -15,10 +15,10 @@ import firebase_admin
 from firebase_admin import credentials, firestore, storage
 
 # --- 1. CONFIGURATION ---
-PROJECT_ID = "respiro-ai"        # <--- CONFIRM PROJECT ID
-ENDPOINT_ID = "5113308511786237952"      # <--- CONFIRM ENDPOINT ID
+PROJECT_ID = "respiro-ai"        
+ENDPOINT_ID = "5113308511786237952"     
 LOCATION = "us-central1"
-STORAGE_BUCKET = "respiro-ai.firebasestorage.app" # <--- CONFIRM BUCKET NAME
+STORAGE_BUCKET = "respiro-ai.firebasestorage.app" 
 
 # --- 2. AUTHENTICATION ---
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
