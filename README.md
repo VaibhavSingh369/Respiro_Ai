@@ -65,7 +65,7 @@ The project follows a modern **Client-Server-Cloud** architecture.
 | **AI Model** | **Google Vertex AI** | AutoML Vision model hosted on a cloud endpoint for classification. |
 | **Database** | **Firebase Firestore** | Real-time NoSQL database for storing patient metadata and history. |
 | **File Storage** | **Firebase Storage** | Object storage for hosting raw audio files and spectrogram images. |
-| **Tunneling** | **Ngrok** | Secure tunneling to expose the local backend for global access/demos. |
+
 
 
 
